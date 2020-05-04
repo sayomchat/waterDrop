@@ -38,6 +38,7 @@ export default class GSigninButton extends React.Component {
           onPress={this.signIn}
         />
         <Button title="Sign out" onPress={this.signOut} />
+
         <Text>{this.state.name}</Text>
         <Text>{this.state.email}</Text>
         <Image
@@ -58,6 +59,7 @@ export default class GSigninButton extends React.Component {
         email: userInfo.user.email,
         photo: userInfo.user.photo,
       });
+      this.props.navigation.navigate('Home');
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
